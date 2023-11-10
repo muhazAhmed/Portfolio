@@ -1,0 +1,36 @@
+.home {
+    height: 90%;
+}
+
+.home .pic img {
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px 5px rgb(96, 96, 96);
+}
+
+.home .body {
+    gap: 2rem;
+}
+
+.home .line {
+    background-color: #AAFCEE;
+    height: 1vh;
+    width: 10vw;
+    margin-top: -5px;
+}
+
+.home .body i {
+    color: #AAFCEE;
+    margin-left: -2px;
+    margin-top: -5px;
+}
+
+.home .body h2{
+    padding-right: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.home .body h1 {
+    font-size: bolder;
+    text-transform: uppercase;
+}

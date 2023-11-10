@@ -1,13 +1,13 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import Layout from "./layout/Layout";
+import "./index.css"
 
 const App = () => {
   return (
-    <div>
-      <Button variant="primary">Primary</Button>
-      <h1>Hello World</h1>
+    <div className="app">
+      <Layout />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
