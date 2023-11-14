@@ -5,12 +5,12 @@ import { Button } from "react-bootstrap";
 
 const Home = () => {
   return (
-    <div className="home d-flex align-items-center justify-content-around">
+    <div className="home d-flex align-items-center justify-content-around" id="home">
       <div className="body d-flex flex-column">
         <div className="d-flex align-items-center">
           <h2>Hello</h2>
           <div className="line"></div>
-          <i class="fa-solid fa-circle-dot"></i>
+          <i className="fa-solid fa-circle-dot"></i>
         </div>
         <div>
           <h1>I am Muhaz Ahmed</h1>

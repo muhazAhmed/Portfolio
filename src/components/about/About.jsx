@@ -4,7 +4,7 @@ import svg from "../../assets/about.svg";
 
 const About = () => {
   return (
-    <div className="about d-flex align-items-center">
+    <div className="about d-flex align-items-center" id="about">
       <div className="pic">
         <img src={svg} alt="svg" />
       </div>
