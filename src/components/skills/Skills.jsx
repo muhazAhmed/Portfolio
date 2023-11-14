@@ -15,27 +15,33 @@ import rn from "../../assets/react-native.svg";
 import aws from "../../assets/aws.svg";
 
 const Skills = () => {
+  const skillsData = [
+    { src: html, title: "HTML" },
+    { src: css, title: "CSS" },
+    { src: javascript, title: "JavaScript" },
+    { src: react, title: "React" },
+    { src: nodejs, title: "NodeJs" },
+    { src: mongodb, title: "MongoDB" },
+    { src: angular, title: "Angular" },
+    { src: rn, title: "React Native" },
+    { src: tailwind, title: "Tailwind" },
+    { src: sass, title: "SCSS" },
+    { src: firebase, title: "Firebase" },
+    { src: aws, title: "AWS" },
+    { src: git, title: "GIT" },
+  ];
+
   return (
-    <div className="skills" id="skills">
+    <div className="skills">
       <div className="d-flex align-items-center mb-5">
         <h2>Skills</h2>
         <div className="line"></div>
         <i className="fa-solid fa-circle-dot"></i>
       </div>
       <div className="images">
-        <img src={html} title="HTML" />
-        <img src={css} title="CSS" />
-        <img src={javascript} title="JavaScript" />
-        <img src={react} title="React" />
-        <img src={nodejs} title="NodeJs" />
-        <img src={mongodb} title="MongoDB" />
-        <img src={angular} title="Angular" />
-        <img src={rn} title="React Native" />
-        <img src={tailwind} title="Tailwind" />
-        <img src={sass} title="SCSS" />
-        <img src={firebase} title="Firebase" />
-        <img src={aws} title="AWS" />
-        <img src={git} title="GIT" />
+        {skillsData.map((skill, index) => (
+          <img key={index} src={skill.src} alt={skill.title} />
+        ))}
       </div>
     </div>
   );
