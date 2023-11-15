@@ -36,10 +36,12 @@ const Services = () => {
         data-aos="flip-up"
       >
         {data.map((items, index) => (
-          <div key={index} className="cards" style={{flexWrap: "wrap"}}>
-            <img src={items.img} />
-            <h3 className="fw-bold">{items.title}</h3>
-            <p>{items.para}</p>
+          <div key={index} className="cards" style={{ flexWrap: "wrap" }}>
+            <div className="d-flex flex-column align-items-center" style={{gap: "1rem"}}>
+              <img src={items.img} />
+              <h3 className="fw-bold">{items.title}</h3>
+              <p>{items.para}</p>
+            </div>
           </div>
         ))}
       </div>
