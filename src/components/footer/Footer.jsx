@@ -3,7 +3,12 @@ import "./footer.css";
 import { Button, Card } from "react-bootstrap";
 
 const Contact = () => {
-  
+  const email = "muhazvla313@gmail.com";
+
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${email}`;
+  };
+
   return (
     <div className="contact d-flex align-items-center" id="contact">
       <div
@@ -12,21 +17,39 @@ const Contact = () => {
       >
         <h1>Let's Work Together</h1>
         <p>
-          Lorem ipsum iskim bla bla edios
+          Have a project in mind, or do you want to work with me?
           <br />
-          mala mallm isko braab gebru chiska retu eru mala
+          Feel free to reach out by writing an email.
         </p>
-        <h6 className="text-info" style={{ cursor: "pointer" }}>
-          muhazvla313@gmail.com <i className="fa-solid fa-arrow-right"></i>
+        <h6
+          className="text-info"
+          style={{ cursor: "pointer" }}
+          onClick={handleEmailClick}
+        >
+          {email} <i className="fa-solid fa-arrow-right"></i>
         </h6>
         <div className="links">
-          <i
+          <a
             href="https://github.com/muhazAhmed"
-            className="fa-brands fa-github"
             target="_blank"
-          ></i>
-          <i className="fa-brands fa-linkedin"></i>
-          <i className="fa-brands fa-youtube"></i>
+            rel="noopener noreferrer"
+          >
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/muhazahmed/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@gitunemployed"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fa-brands fa-youtube"></i>
+          </a>
         </div>
       </div>
 

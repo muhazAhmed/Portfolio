@@ -43,9 +43,10 @@
         height: auto;
         margin-top: 3rem;
         padding: 5px;
+        width: 100%;
     }
 
     .services .cards {
-        width: 100%;
+        width: auto;
     }
 }

@@ -53,6 +53,7 @@
 .contact .links i {
     font-size: 25px;
     cursor: pointer;
+    color: #fff;
 }
 
 @media (max-width: 768px) {

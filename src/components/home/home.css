@@ -11,6 +11,10 @@
     gap: 2rem;
 }
 
+.home .body h4 {
+    color: #AAFCEE;
+}
+
 .home .line {
     background-color: #AAFCEE;
     height: 1vh;
@@ -47,6 +51,10 @@
     .home .body {
         width: 100%;
         gap: 1rem;
+    }
+
+    .home .body h4 {
+        font-size: 18px;
     }
 
     .home .pic img {

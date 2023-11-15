@@ -50,6 +50,10 @@
 
     .skills .images {
         padding: 10px;
-        gap: 2rem;
+        gap: 1rem;
+    }
+
+    .skills .images img {
+        width: 12vw;
     }
 }
