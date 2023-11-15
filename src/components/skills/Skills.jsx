@@ -32,7 +32,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="skills">
+    <div className="skills" id="skills">
       <div className="d-flex align-items-center mb-5">
         <h2>Skills</h2>
         <div className="line"></div>
@@ -40,7 +40,7 @@ const Skills = () => {
       </div>
       <div className="images">
         {skillsData.map((skill, index) => (
-          <img key={index} src={skill.src} alt={skill.title} />
+          <img key={index} src={skill.src} alt={skill.title} title={skill.title} loading="lazy"/>
         ))}
       </div>
     </div>

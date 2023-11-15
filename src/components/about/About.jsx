@@ -14,7 +14,7 @@ const About = () => {
           <div className="line"></div>
           <i className="fa-solid fa-circle-dot"></i>
         </div>
-        <div className="">
+        <div className="para">
           <h5>
             Enthusiastic full-stack web developer with a passion for crafting
             seamless digital experiences. <br />

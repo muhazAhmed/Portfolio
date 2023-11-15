@@ -13,13 +13,13 @@ const TopNavbar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features" className="text-white">About</Nav.Link>
-            <Nav.Link href="#pricing" className="text-white">Skills</Nav.Link>
-            <Nav.Link href="#pricing" className="text-white">Projects</Nav.Link>
+            <Nav.Link href="#about" className="text-white">About</Nav.Link>
+            <Nav.Link href="#skills" className="text-white">Skills</Nav.Link>
+            <Nav.Link href="#projects" className="text-white">Projects</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets" className="text-white">Services</Nav.Link>
-            <Nav.Link href="#deets" className="text-white">Contact</Nav.Link>
+            <Nav.Link href="#services" className="text-white">Services</Nav.Link>
+            <Nav.Link href="#contact" className="text-white">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

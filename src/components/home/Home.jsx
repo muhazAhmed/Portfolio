@@ -2,6 +2,7 @@ import React from "react";
 import "./home.css";
 import DP from "../../assets/dp.png";
 import { Button } from "react-bootstrap";
+import cv from "../../assets/cv.pdf";
 
 const Home = () => {
   return (
@@ -17,8 +18,8 @@ const Home = () => {
           <h4>FULL STACK DEVELOPER</h4>
         </div>
         <div className="d-flex align-items-center" style={{gap: "1rem"}}>
-          <Button variant="info">Hire Me</Button>
-          <Button variant="outline-info">Download CV</Button>
+          <Button variant="info" href="#contact">Hire Me</Button>
+          <Button variant="outline-info" href={cv} download>Download CV</Button>
         </div>
       </div>
       <div className="pic">

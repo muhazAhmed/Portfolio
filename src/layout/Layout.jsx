@@ -1,18 +1,24 @@
-import React from "react";
+import React, { Suspense } from "react";
 import TopNavbar from "../components/navbar/Navbar";
-import Home from "../components/home/Home";
-import About from "../components/about/About";
-import Skills from "../components/skills/Skills";
-import Project from "../components/projects/Project";
+const Home = React.lazy(() => import("../components/home/Home"));
+const About = React.lazy(() => import("../components/about/About"));
+const Skills = React.lazy(() => import("../components/skills/Skills"));
+const Project = React.lazy(() => import("../components/projects/Project"));
+const Services = React.lazy(() => import("../components/services/Services"));
+const Contact = React.lazy(() => import("../components/footer/Footer"));
+import Loading from "./Loading";
 
 const Layout = () => {
   return (
     <div className="h-100">
+      <Suspense fallback={<Loading />}></Suspense>
       <TopNavbar />
       <Home />
       <About />
       <Skills />
+      <Services />
       <Project />
+      <Contact />
     </div>
   );
 };

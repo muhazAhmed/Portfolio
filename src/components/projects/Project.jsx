@@ -63,6 +63,7 @@ const Project = () => {
               variant="top"
               src={project.image}
               onClick={() => openModal(project.image)}
+              loading="lazy"
             />
             <Card.Body>
               <Card.Title>{project.title}</Card.Title>

@@ -24,7 +24,7 @@
     margin-top: -5px;
 }
 
-.home .body h2{
+.home .body h2 {
     padding-right: 10px;
     font-weight: bold;
     text-transform: uppercase;
@@ -33,4 +33,28 @@
 .home .body h1 {
     font-size: bolder;
     text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column-reverse;
+        width: 100%;
+        height: auto;
+        justify-content: center !important;
+        gap: 4rem;
+    }
+
+    .home .pic img {
+        width: 80vw;
+        border-radius: 12px !important;
+    }
+
+    .home .btn {
+        width: auto !important;
+    }
+
+    .home .pic {
+        display: flex;
+        align-items: center;
+    }
 }
