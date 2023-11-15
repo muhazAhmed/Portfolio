@@ -11,3 +11,18 @@
 .nav {
     position: sticky !important;
 }
+
+@media (max-width: 768px) {
+
+    .nav {
+        margin-bottom: 2rem;
+    }
+    .nav button {
+        background-color: #AAFCEE !important;
+        border: none !important;
+    }
+
+    .nav button:focus {
+        outline: none !important;
+    }
+}

@@ -44,4 +44,12 @@
     .about .body .para {
         width: 100%;
     }
+
+    .about .para h5 {
+        font-size: 13px;
+    }
+
+    .about .mb-5 {
+        margin-bottom: 1rem;
+    }
 }
