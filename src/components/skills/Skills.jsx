@@ -38,7 +38,7 @@ const Skills = () => {
         <div className="line"></div>
         <i className="fa-solid fa-circle-dot"></i>
       </div>
-      <div className="images">
+      <div className="images" data-aos="fade-up">
         {skillsData.map((skill, index) => (
           <img key={index} src={skill.src} alt={skill.title} title={skill.title} loading="lazy"/>
         ))}

@@ -56,7 +56,7 @@ const Project = () => {
         <div className="line"></div>
         <i className="fa-solid fa-circle-dot"></i>
       </div>
-      <div className="cards d-flex align-items-center">
+      <div className="cards d-flex align-items-center"  data-aos="fade-down">
         {projects.map((project, index) => (
           <Card key={index} style={{ width: "18rem", marginBottom: "1rem" }}>
             <Card.Img

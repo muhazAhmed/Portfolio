@@ -11,14 +11,15 @@ import Loading from "./Loading";
 const Layout = () => {
   return (
     <div className="h-100">
-      <Suspense fallback={<Loading />}></Suspense>
       <TopNavbar />
-      <Home />
-      <About />
-      <Skills />
-      <Services />
-      <Project />
-      <Contact />
+      <Suspense fallback={<Loading />}>
+        <Home />
+        <About />
+        <Skills />
+        <Services />
+        <Project />
+        <Contact />
+      </Suspense>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import cv from "../../assets/cv.pdf";
 const Home = () => {
   return (
     <div className="home d-flex align-items-center justify-content-around" id="home">
-      <div className="body d-flex flex-column">
+      <div className="body d-flex flex-column" data-aos="slide-right">
         <div className="d-flex align-items-center">
           <h2>Hello</h2>
           <div className="line"></div>
@@ -22,7 +22,7 @@ const Home = () => {
           <Button variant="outline-info" href={cv} download>Download CV</Button>
         </div>
       </div>
-      <div className="pic">
+      <div className="pic" data-aos="slide-left">
         <img src={DP} alt="Image" />
       </div>
     </div>

@@ -14,6 +14,7 @@ const Contact = () => {
       <div
         className="d-flex flex-column align-items-sm-start"
         style={{ gap: "1rem" }}
+        data-aos="flip-right"
       >
         <h1>Let's Work Together</h1>
         <p>
@@ -53,7 +54,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <Card>
+      <Card data-aos="zoom-in">
         <Card.Body>
           <Card.Title>Send me a message</Card.Title>
           <input type="email" autoComplete="off" placeholder="Email" required />

@@ -33,6 +33,7 @@ const Services = () => {
           gap: "1rem",
           flexWrap: "wrap",
         }}
+        data-aos="flip-up"
       >
         {data.map((items, index) => (
           <div key={index} className="cards" style={{flexWrap: "wrap"}}>

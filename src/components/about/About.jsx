@@ -8,7 +8,7 @@ const About = () => {
       <div className="pic">
         <img src={svg} alt="svg" />
       </div>
-      <div className="body d-flex flex-column w-50">
+      <div className="body d-flex flex-column w-50" data-aos="slide-up">
         <div className="d-flex align-items-center mb-5">
           <h2>About</h2>
           <div className="line"></div>
