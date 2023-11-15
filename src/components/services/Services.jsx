@@ -35,7 +35,7 @@ const Services = () => {
         }}
       >
         {data.map((items, index) => (
-          <div key={index} className="cards">
+          <div key={index} className="cards" style={{flexWrap: "wrap"}}>
             <img src={items.img} />
             <h3 className="fw-bold">{items.title}</h3>
             <p>{items.para}</p>

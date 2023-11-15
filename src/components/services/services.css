@@ -37,3 +37,16 @@
     color: black;
     padding: 10px;
 }
+
+@media (max-width: 768px) {
+    .services {
+        height: auto;
+        margin-top: 3rem;
+        padding: 5px;
+    }
+
+    .services .cards {
+        width: 100%;
+        gap: 2rem;
+    }
+}

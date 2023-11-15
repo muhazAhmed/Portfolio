@@ -44,6 +44,11 @@
         gap: 4rem;
     }
 
+    .home .body {
+        width: 100%;
+        gap: 1rem;
+    }
+
     .home .pic img {
         width: 80vw;
         border-radius: 12px !important;

@@ -40,3 +40,16 @@
 .skills h2 {
     padding-right: 10px;
 }
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 5px;
+        margin-top: 3rem;
+        height: auto;
+    }
+
+    .skills .images {
+        padding: 10px;
+        gap: 2rem;
+    }
+}

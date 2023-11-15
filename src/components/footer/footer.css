@@ -54,3 +54,14 @@
     font-size: 25px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column;
+    }
+
+    .contact .card {
+        width: auto;
+        height: 40%;
+    }
+}

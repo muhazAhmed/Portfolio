@@ -28,5 +28,6 @@ html::-webkit-scrollbar {
 @media (max-width: 768px) {
   .app {
     width: auto;
+    padding: 10px;
   }
 }
