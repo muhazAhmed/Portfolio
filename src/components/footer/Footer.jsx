@@ -3,10 +3,10 @@ import "./footer.css";
 import { Button, Card } from "react-bootstrap";
 import Loading from "../../layout/Loading";
 import axios from "axios";
-import { URL } from "../../admin/api/API_URL";
 
 const Contact = () => {
   const email = "muhazvla313@gmail.com";
+  const URL = import.meta.env.VITE_URL;
   const [modal, setModal] = useState(false);
   const [toast, setToast] = useState(false);
   const [error, setError] = useState(null);
