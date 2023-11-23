@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./footer.css";
 import { Button, Card } from "react-bootstrap";
 import Loading from "../../layout/Loading";
@@ -11,10 +11,22 @@ const Contact = () => {
   const [toast, setToast] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [aosAnimation, setAosAnimation] = useState('slide-left');
   const [inputs, setInputs] = useState({
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setAosAnimation(window.innerWidth <= 768 ? 'slide-up' : 'slide-left');
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleEmailClick = () => {
     window.location.href = `mailto:${email}`;
@@ -138,9 +150,11 @@ const Contact = () => {
       )}
 
       {toast && (
-        <div className="toast" data-aos="slide-left">
-          <i className="fa-solid fa-circle-xmark"></i>
-          <h4>{error ? error : "Something Went Wrong"}</h4>
+        <div className="blur">
+          <div className="toast" data-aos={aosAnimation}>
+            <i className="fa-solid fa-circle-xmark"></i>
+            <h4>{error ? error : "Something Went Wrong"}</h4>
+          </div>
         </div>
       )}
     </div>

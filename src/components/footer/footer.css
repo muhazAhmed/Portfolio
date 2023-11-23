@@ -125,7 +125,23 @@
     }
 
     .contact .toast {
-        width: auto;
+        width: 100%;
+        bottom: 10px;
+        top: 80%;
+        height: 20vh;
+        right: 0%;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contact .toast i {
+        font-size: 2rem !important;
+    }
+
+    .contact .toast h4 {
+        font-size: large;
     }
 
     .contact .modal {
