@@ -48,6 +48,10 @@
         gap: 4rem;
     }
 
+    .home h2, .home h1 {
+        font-size: 22px;
+    }
+
     .home .body {
         width: 100%;
         gap: 1rem;
