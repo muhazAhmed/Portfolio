@@ -46,6 +46,7 @@
         height: auto;
         justify-content: center !important;
         gap: 4rem;
+        margin-bottom: 1rem;
     }
 
     .home h2, .home h1 {
@@ -54,7 +55,7 @@
 
     .home .body {
         width: 100%;
-        gap: 4rem;
+        gap: 3rem;
     }
 
     .home .body h4 {
