@@ -29,7 +29,7 @@
     .about {
         width: 100%;
         height: auto;
-        margin-top: 3rem;
+        margin-top: 5rem;
         justify-content: flex-start;
     }
 
@@ -46,7 +46,7 @@
     }
 
     .about .para h5 {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .about .mb-5 {
