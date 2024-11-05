@@ -5,12 +5,16 @@ import { FaCloudDownloadAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { useTheme } from "@/lib/context/ThemeContext";
+import { redirectWithNewTab } from "@/lib/Consts";
 
 const Hero = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="h-full w-full flex items-center justify-center flex-col gap-6 p-4 pt-0 md:p-8" id="home">
+    <div
+      className="h-full w-full flex items-center justify-center flex-col gap-6 p-4 pt-0 md:p-8"
+      id="home"
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -70,6 +74,7 @@ const Hero = () => {
           className={`flex items-center justify-between rounded-full gap-3 px-5 ${
             theme === "light" ? "bg-white/70" : "bg-[#282C35]"
           } shadow-lg cursor-pointer`}
+          onClick={() => redirectWithNewTab("https://github.com/muhazAhmed")}
         >
           <Image src="/icons/github.png" alt="GitHub" width={40} height={40} />
           <p className="text-sm">GitHub</p>
@@ -80,6 +85,9 @@ const Hero = () => {
           className={`flex items-center justify-between rounded-full gap-3 px-5 ${
             theme === "light" ? "bg-white/70" : "bg-[#282C35]"
           } shadow-lg cursor-pointer`}
+          onClick={() =>
+            redirectWithNewTab("https://www.linkedin.com/in/muhazahmed/")
+          }
         >
           <Image
             src="/icons/linkedin.png"
@@ -95,6 +103,7 @@ const Hero = () => {
           className={`flex items-center justify-between rounded-full gap-3 px-5 ${
             theme === "light" ? "bg-white/70" : "bg-[#282C35]"
           } shadow-lg cursor-pointer`}
+          onClick={() => redirectWithNewTab("https://instagram.com/")}
         >
           <Image
             src="/icons/instagram.png"
