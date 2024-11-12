@@ -113,6 +113,24 @@ const Hero = () => {
           />
           <p className="text-sm">Instagram</p>
         </motion.div>
+
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          className={`flex items-center justify-between rounded-full gap-3 px-5 ${
+            theme === "light" ? "bg-white/70" : "bg-[#282C35]"
+          } shadow-lg cursor-pointer`}
+          onClick={() =>
+            redirectWithNewTab("https://youtube.com/@gitunemployed")
+          }
+        >
+          <Image
+            src="/icons/youtube.png"
+            alt="Youtube"
+            width={40}
+            height={40}
+          />
+          <p className="text-sm">Youtube</p>
+        </motion.div>
       </motion.div>
 
       <motion.h2
