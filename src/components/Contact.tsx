@@ -29,10 +29,10 @@ const Contact = () => {
   };
 
   const handleSubmit = async () => {
-    if (!payload?.email) return alert("email is required");
-    if (!payload?.message) return alert("message is required");
+    if (!payload?.email) return enqueueSnackbar("Email is required");
+    if (!payload?.message) return enqueueSnackbar("Message cannot be empty");
     const response = await sendMessage(payload, setLoading);
-    response &&
+    if (response) {
       enqueueSnackbar(response, {
         persist: true,
         action: closeToast,
@@ -41,7 +41,8 @@ const Contact = () => {
           horizontal: "right",
         },
       });
-    response && clearInputs(setPayload);
+      clearInputs(setPayload);
+    }
   };
 
   const handleChange = (e: any) => {
