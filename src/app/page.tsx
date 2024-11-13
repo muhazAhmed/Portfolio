@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Skills from "@/components/Skills";
 import { loadInitialServer } from "@/lib/utils";
+import { SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
 
   return (
     <div className="sm:mb-11 md:mb-0">
+      <SnackbarProvider />
       <div id="home">
         <Hero />
       </div>
