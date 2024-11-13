@@ -16,7 +16,7 @@ export const sendMessage = async (payload: any, loading: any) => {
       `${DB_CONNECTION}/api/new-message`,
       payload
     );
-    console.log(response);
+    return response?.data;
   } catch (error) {
     return console.log(error);
   } finally {

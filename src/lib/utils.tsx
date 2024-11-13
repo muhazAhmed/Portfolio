@@ -1,5 +1,6 @@
 import { loadServer } from "@/api/apiConfig";
 import axios from "axios";
+import { closeSnackbar } from "notistack";
 let isLoaded = false;
 
 export const loadInitialServer = async () => {
@@ -21,4 +22,25 @@ export const fetchUserLocation = async () => {
     console.error("Error fetching user location:", error);
     return null;
   }
+};
+
+export const closeToast = (snackbarId: any) => (
+  <button
+    style={{ color: "red" }}
+    onClick={() => {
+      closeSnackbar(snackbarId);
+    }}
+  >
+    Dismiss
+  </button>
+);
+
+export const clearInputs = (setInputs: any) => {
+  setInputs((prevInputs: any) => {
+    const inputs: { [key: string]: any } = {};
+    for (const key in prevInputs) {
+      inputs[key] = "";
+    }
+    return inputs;
+  });
 };

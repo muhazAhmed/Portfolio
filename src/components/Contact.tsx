@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { IoIosMailUnread } from "react-icons/io";
 import { MdOutlineLocalPhone } from "react-icons/md";
@@ -7,8 +7,19 @@ import { FaRegUser } from "react-icons/fa6";
 import { useTheme } from "@/lib/context/ThemeContext";
 import { CgArrowLongLeftR, CgArrowLongRightR } from "react-icons/cg";
 import { FaPaperPlane } from "react-icons/fa";
+import { sendMessage } from "@/api/apiConfig";
+import Loader from "./Loader";
+import { enqueueSnackbar } from "notistack";
+import { clearInputs, closeToast } from "@/lib/utils";
 
 const Contact = () => {
+  const [payload, setPayload] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState<boolean>(false);
   const { theme } = useTheme();
   const email = "muhazvla313@gmail.com";
   const phone = "+917996724318";
@@ -17,11 +28,32 @@ const Contact = () => {
       item === "email" ? `mailto:${email}` : `tel:${phone}`;
   };
 
+  const handleSubmit = async () => {
+    if (!payload?.email) return alert("email is required");
+    if (!payload?.message) return alert("message is required");
+    const response = await sendMessage(payload, setLoading);
+    response &&
+      enqueueSnackbar(response, {
+        persist: true,
+        action: closeToast,
+        anchorOrigin: {
+          vertical: "top",
+          horizontal: "right",
+        },
+      });
+    response && clearInputs(setPayload);
+  };
+
+  const handleChange = (e: any) => {
+    setPayload({ ...payload, [e.target.name]: e.target.value });
+  };
+
   return (
     <div
       className="w-full flex items-center h-[100vh] justify-center gap-12 flex-col"
       id="contact"
     >
+      {loading && <Loader />}
       <motion.div className="flex items-center gap-8">
         <motion.div>
           <CgArrowLongLeftR className="text-[3rem]" />
@@ -85,6 +117,9 @@ const Contact = () => {
           <div className="flex p-1 md:p-3 items-center gap-2 border-b-2 border-gray-300 w-[90%] md:w-96">
             <FaRegUser className="text-[1.5rem] md:text-lg" />
             <input
+              onChange={handleChange}
+              name="name"
+              value={payload?.name || ""}
               placeholder="Your name"
               required
               className="bg-transparent outline-none"
@@ -93,6 +128,9 @@ const Contact = () => {
           <div className="flex p-1 md:p-3 items-center gap-2 border-b-2 border-gray-300 w-[90%] md:w-96">
             <IoIosMailUnread className="text-[1.5rem] md:text-lg" />
             <input
+              onChange={handleChange}
+              name="email"
+              value={payload?.email || ""}
               placeholder="Your email address"
               type="email"
               required
@@ -102,12 +140,18 @@ const Contact = () => {
           <div className="flex p-1 md:p-3 items-center gap-2 border-b-2 border-gray-300 w-[90%] md:w-96">
             <MdOutlineLocalPhone className="text-[1.5rem] md:text-lg" />
             <input
+              onChange={handleChange}
+              name="phone"
+              value={payload?.phone || ""}
               placeholder="Your phone number"
               type="number"
               className="bg-transparent outline-none"
             />
           </div>
           <textarea
+            onChange={handleChange}
+            name="message"
+            value={payload?.message || ""}
             placeholder="Your message"
             required
             className="bg-transparent outline-none p-2 border-b-2  border-gray-300 w-[90%] md:w-96"
@@ -118,6 +162,7 @@ const Contact = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             whileHover={{ scale: 1.05 }}
+            onClick={handleSubmit}
           >
             Submit
             <FaPaperPlane />
