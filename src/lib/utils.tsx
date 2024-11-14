@@ -2,6 +2,7 @@ import { loadServer } from "@/api/apiConfig";
 import axios from "axios";
 import { closeSnackbar } from "notistack";
 let isLoaded = false;
+import { IoCloseSharp } from "react-icons/io5";
 
 export const loadInitialServer = async () => {
   if (isLoaded) return; // Prevent multiple calls
@@ -31,7 +32,7 @@ export const closeToast = (snackbarId: any) => (
       closeSnackbar(snackbarId);
     }}
   >
-    Dismiss
+    <IoCloseSharp className="text-xl md:text-3xl" />
   </button>
 );
 
@@ -50,7 +51,7 @@ export const newSessionStorage = (key: string, item: any) => {
 };
 
 export const useSessionStorage = (key: string) => {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return null;
   }
   const items = sessionStorage.getItem(key);

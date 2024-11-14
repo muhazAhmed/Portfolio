@@ -36,10 +36,6 @@ const Contact = () => {
       enqueueSnackbar(response, {
         persist: true,
         action: closeToast,
-        anchorOrigin: {
-          vertical: "top",
-          horizontal: "right",
-        },
       });
       clearInputs(setPayload);
     }
