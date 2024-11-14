@@ -50,6 +50,9 @@ export const newSessionStorage = (key: string, item: any) => {
 };
 
 export const useSessionStorage = (key: string) => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
   const items = sessionStorage.getItem(key);
   return items ? JSON.parse(items) : null;
 };

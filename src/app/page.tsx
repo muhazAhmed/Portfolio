@@ -9,9 +9,10 @@ import { SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 
 export default function Home() {
+  const initialLoad = useSessionStorage("initialLoad")
   useEffect(() => {
-    useSessionStorage("initialLoad") === null && loadInitialServer();
-  }, []);
+    if (initialLoad === null) loadInitialServer();
+  }, [initialLoad]);
 
   return (
     <div className="sm:mb-11 md:mb-0">
