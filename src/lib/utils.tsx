@@ -44,3 +44,16 @@ export const clearInputs = (setInputs: any) => {
     return inputs;
   });
 };
+
+export const newSessionStorage = (key: string, item: any) => {
+  sessionStorage.setItem(key, JSON.stringify(item));
+};
+
+export const useSessionStorage = (key: string) => {
+  const items = sessionStorage.getItem(key);
+  return items ? JSON.parse(items) : null;
+};
+
+export const deleteSessionStorage = (key: string) => {
+  sessionStorage.removeItem(key);
+};
