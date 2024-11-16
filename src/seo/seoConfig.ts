@@ -21,6 +21,10 @@ const SEO = {
         handle: "@muhazAhmed",
         site: "https://github.com/muhazAhmed",
     },
+    icons: {
+        icon: "/favicon.ico",
+        apple: "/images/logo.png",
+    },
 };
 
 export default SEO;
