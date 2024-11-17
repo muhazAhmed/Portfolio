@@ -8,7 +8,6 @@ import Navbar from "@/components/Navbar";
 import BottomMenu from "@/components/BottomMenu";
 import Footer from "@/components/Footer";
 import SEO from "@/seo/seoConfig";
-import Head from "next/head";
 
 export const metadata: Metadata = SEO;
 
@@ -19,10 +18,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/images/logo.png" />
-      </Head>
       <body className={"antialiased"}>
         <ThemeProvider>
           <Suspense fallback={<Loader />}>
