@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="hidden md:flex w-full items-center justify-center z-[999] sticky top-0">
       <div
-        className={`flex items-center justify-between w-[25%] ${
+        className={`flex items-center justify-between w-fit gap-12 ${
           theme === "light" ? "bg-white/70" : "bg-[#282C35]"
         } backdrop-blur-md rounded-full mt-2 shadow-xl p-[8px]`}
       >
@@ -33,7 +33,7 @@ const Navbar = () => {
           className="rounded-full bg-white cursor-pointer"
           priority={true}
         />
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-4">
           <div
             className={`transition-transform transform hover:scale-105 duration-200 ease-in-out flex items-center gap-1 cursor-pointer p-1 rounded-full hover:bg-primary`}
             onClick={() => scrollToSection("home")}
