@@ -161,7 +161,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 1.1 }}
         whileHover={{ scale: 1.05 }}
         className="flex p-3 px-5 items-center gap-2 rounded-full border-2 border-primary hover:bg-primary hover:text-white"
-        href={"/files/Muhaz_2.5yrs Exp.pdf"}
+        href={"/files/muhazAhmed2025.pdf"}
         download
       >
         <FaCloudDownloadAlt className="text-[25px]" /> Download Resume
