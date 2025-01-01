@@ -25,6 +25,24 @@ export const fetchUserLocation = async () => {
   }
 };
 
+export const loadUserDevice = async () => {
+  const userAgent = navigator.userAgent.toLowerCase();
+
+  let deviceType = "Unknown";
+
+  if (/android/.test(userAgent)) {
+    deviceType = "Android";
+  } else if (/iphone|ipad|ipod/.test(userAgent)) {
+    deviceType = "iOS";
+  } else if (/macintosh|mac os x/.test(userAgent)) {
+    deviceType = "macOS";
+  } else if (/windows/.test(userAgent)) {
+    deviceType = "Windows";
+  }
+
+  return deviceType;
+};
+
 export const closeToast = (snackbarId: any) => (
   <button
     style={{ color: "red" }}
