@@ -1,68 +1,43 @@
 "use client";
-import Image from "next/image";
 import React from "react";
-import { GoHome } from "react-icons/go";
-import ThemeToggle from "./ThemeToggle";
-import { GoGear } from "react-icons/go";
-import { FiPhone } from "react-icons/fi";
-import { SiHyperskill } from "react-icons/si";
-import { useTheme } from "@/lib/context/ThemeContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
-const Navbar = () => {
-  const { theme } = useTheme();
+const links: { id: string; label: string }[] = [
+  { id: "home", label: "Home" },
+  { id: "skills", label: "Skills" },
+  { id: "services", label: "Services" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+export default function Navbar() {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className="hidden md:flex w-full items-center justify-center z-[999] sticky top-0">
-      <div
-        className={`flex items-center justify-between w-fit gap-12 ${
-          theme === "light" ? "bg-white/70" : "bg-[#282C35]"
-        } backdrop-blur-md rounded-full mt-2 shadow-xl p-[8px]`}
-      >
-        <Image
-          src={"/images/logo.png"}
-          alt="logo"
-          width={35}
-          height={35}
-          className="rounded-full bg-white cursor-pointer"
-          priority={true}
-        />
-        <div className="flex items-center justify-center gap-4">
-          <div
-            className={`transition-transform transform hover:scale-105 duration-200 ease-in-out flex items-center gap-1 cursor-pointer p-1 rounded-full hover:bg-primary`}
-            onClick={() => scrollToSection("home")}
-          >
-            <GoHome className="text-[20px] font-bold" />
-          </div>
-          <div
-            className={`transition-transform transform hover:scale-105 p-1 rounded-full hover:bg-primary duration-200 ease-in-out flex items-center gap-1 cursor-pointer`}
-            onClick={() => scrollToSection("services")}
-          >
-            <GoGear className="text-[20px] font-bold" />
-          </div>
-          <div
-            className={`transition-transform transform hover:scale-105 p-1 rounded-full hover:bg-primary duration-200 ease-in-out flex items-center gap-1 cursor-pointer`}
-            onClick={() => scrollToSection("skills")}
-          >
-            <SiHyperskill className="text-[20px] font-bold" />
-          </div>
-          <div
-            className={`transition-transform transform hover:scale-105 p-1 rounded-full hover:bg-primary duration-200 ease-in-out flex items-center gap-1 cursor-pointer`}
-            onClick={() => scrollToSection("contact")}
-          >
-            <FiPhone className="text-[20px] font-bold" />
-          </div>
+    <div className="sticky top-0 z-[1000] flex w-full justify-center py-2">
+      <div className="glass w-[95%] md:w-[760px] rounded-2xl px-3 md:px-5 py-2 flex items-center justify-between">
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="size-2 md:size-2.5 rounded-full" style={{ background: "radial-gradient(circle at 30% 30%, var(--accent-start), var(--accent-mid))" }} />
+          <span className="text-xs md:text-sm tracking-wide opacity-80">muhaz.dev</span>
         </div>
-        <ThemeToggle />
+        <nav className="hidden md:flex items-center gap-1 md:gap-2">
+          {links.map((l) => (
+            <button
+              key={l.id}
+              onClick={() => scrollTo(l.id)}
+              className="relative rounded-xl px-3 py-1.5 text-xs hover:opacity-100 opacity-80 transition group"
+            >
+              <span>{l.label}</span>
+              <span className="absolute left-1/2 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-[var(--accent-start)] via-[var(--accent-mid)] to-[var(--accent-end)] transition-all duration-300 group-hover:left-0 group-hover:w-full rounded-full" />
+            </button>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   );
-};
-
-export default Navbar;
+}

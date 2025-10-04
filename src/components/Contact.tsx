@@ -1,173 +1,43 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { IoIosMailUnread } from "react-icons/io";
-import { MdOutlineLocalPhone } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa6";
-import { useTheme } from "@/lib/context/ThemeContext";
-import { CgArrowLongLeftR, CgArrowLongRightR } from "react-icons/cg";
-import { FaPaperPlane } from "react-icons/fa";
-import { sendMessage } from "@/api/apiConfig";
-import Loader from "./Loader";
-import { enqueueSnackbar } from "notistack";
-import { clearInputs, closeToast } from "@/lib/utils";
+import Image from "next/image";
 
-const Contact = () => {
-  const [payload, setPayload] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [loading, setLoading] = useState<boolean>(false);
-  const { theme } = useTheme();
-  const email = "muhazvla313@gmail.com";
-  const phone = "+917996724318";
-  const handleCardClick = (item: string) => {
-    window.location.href =
-      item === "email" ? `mailto:${email}` : `tel:${phone}`;
-  };
-
-  const handleSubmit = async () => {
-    if (!payload?.email) return enqueueSnackbar("Email is required");
-    if (!payload?.message) return enqueueSnackbar("Message cannot be empty");
-    const response = await sendMessage(payload, setLoading);
-    if (response) {
-      enqueueSnackbar(response, {
-        persist: true,
-        action: closeToast,
-      });
-      clearInputs(setPayload);
-    }
-  };
-
-  const handleChange = (e: any) => {
-    setPayload({ ...payload, [e.target.name]: e.target.value });
-  };
-
+export default function Contact() {
   return (
-    <div
-      className="w-full flex items-center h-[100vh] justify-center gap-12 flex-col"
-      id="contact"
-    >
-      {loading && <Loader />}
-      <motion.div className="flex items-center gap-8">
-        <motion.div>
-          <CgArrowLongLeftR className="text-[3rem]" />
-        </motion.div>
-        <motion.h1 className="text-xl md:text-2xl">Contact Us</motion.h1>
-        <motion.div>
-          <CgArrowLongRightR className="text-[3rem]" />
-        </motion.div>
-      </motion.div>
-
-      <div className="w-full flex flex-col md:flex-row justify-center items-center gap-6 md:gap-0">
-        <div className="flex items-start gap-4 flex-col">
-          <h2 className="text-2xl">Let&apos;s Work Together</h2>
-          <p className="w-[95%] md:w-[60%] text-gray-400 text-sm">
-            Have a project in mind, or do you want to work with me? Feel free to
-            reach out by writing to us.
-          </p>
-
-          <motion.div
-            className={`flex items-center gap-4 cursor-pointer ${
-              theme === "light" ? "bg-white/70" : "bg-gray-800"
-            } shadow-md shadow-slate-400 rounded-2xl p-2 px-5`}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => handleCardClick("email")}
-          >
-            <IoIosMailUnread className="text-2xl text-primary" />
-            <div className="flex flex-col">
-              <h4 className="text-gray-400">Email</h4>
-              <h2 className="font-bold text-md">{email}</h2>
-            </div>
-          </motion.div>
-          <motion.div
-            className={`flex items-center gap-4 cursor-pointer ${
-              theme === "light" ? "bg-white/70" : "bg-gray-800"
-            } shadow-md shadow-slate-400 rounded-2xl p-2 px-5`}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => handleCardClick("phone")}
-          >
-            <MdOutlineLocalPhone className="text-2xl text-primary" />
-            <div className="flex flex-col">
-              <h4 className="text-gray-400">Phone</h4>
-              <h2 className="font-bold text-md">{phone}</h2>
-            </div>
-          </motion.div>
+    <section id="contact" className="mx-auto max-w-6xl px-4 md:px-8 py-10 md:py-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.5 }}
+        className="rounded-3xl p-6 md:p-10 glass"
+      >
+        <h2 className="text-2xl md:text-3xl font-bold">
+          <span className="accent-text">Let’s build something</span> remarkable
+        </h2>
+        <p className="mt-2 text-sm md:text-base opacity-70 max-w-2xl">
+          Open to freelance, full-time, and collaboration opportunities.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <a href="mailto:muhazvla313@gmail.com" className="rounded-full px-5 py-2 text-sm font-semibold border border-white/15 hover:border-white/30 transition flex items-center gap-2">
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='h-5 w-5' fill='currentColor'><path d='M2 6a2 2 0 012-2h16a2 2 0 012 2v.511l-10 5.714L2 6.511V6z'/><path d='M22 8.277v9.723a2 2 0 01-2 2H4a2 2 0 01-2-2V8.277l9.4 5.372a2 2 0 002 0L22 8.277z'/></svg>
+            Email
+          </a>
+          <a href="https://www.linkedin.com/in/muhazahmed/" target="_blank" className="rounded-full px-5 py-2 text-sm font-semibold border border-white/15 hover:border-white/30 transition flex items-center gap-2">
+            <Image src="/icons/linkedin.png" width={18} height={18} alt="LinkedIn" />
+            LinkedIn
+          </a>
+          <a href="https://github.com/muhazAhmed" target="_blank" className="rounded-full px-5 py-2 text-sm font-semibold border border-white/15 hover:border-white/30 transition flex items-center gap-2">
+            <Image src="/icons/github.png" width={18} height={18} alt="GitHub" />
+            GitHub
+          </a>
+          <a href="https://youtube.com/@gitunemployed" target="_blank" className="rounded-full px-5 py-2 text-sm font-semibold border border-white/15 hover:border-white/30 transition flex items-center gap-2">
+            <Image src="/icons/youtube.png" width={18} height={18} alt="YouTube" />
+            YouTube
+          </a>
         </div>
-        <motion.div
-          className={`flex ${
-            theme === "light" ? "bg-white/70" : "bg-gray-800"
-          } shadow-2xl shadow-slate-500 p-5 rounded-2xl flex-col w-[98%] md:w-[30%] gap-4 md:gap-2 items-center`}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <div className="flex p-1 md:p-3 items-center gap-2 border-b-2 border-gray-300 w-[90%] md:w-96">
-            <FaRegUser className="text-[1.5rem] md:text-lg" />
-            <input
-              onChange={handleChange}
-              name="name"
-              value={payload?.name || ""}
-              placeholder="Your name"
-              required
-              className="bg-transparent outline-none"
-            />
-          </div>
-          <div className="flex p-1 md:p-3 items-center gap-2 border-b-2 border-gray-300 w-[90%] md:w-96">
-            <IoIosMailUnread className="text-[1.5rem] md:text-lg" />
-            <input
-              onChange={handleChange}
-              name="email"
-              value={payload?.email || ""}
-              placeholder="Your email address"
-              type="email"
-              required
-              className="bg-transparent outline-none"
-            />
-          </div>
-          <div className="flex p-1 md:p-3 items-center gap-2 border-b-2 border-gray-300 w-[90%] md:w-96">
-            <MdOutlineLocalPhone className="text-[1.5rem] md:text-lg" />
-            <input
-              onChange={handleChange}
-              name="phone"
-              value={payload?.phone || ""}
-              placeholder="Your phone number"
-              type="number"
-              className="bg-transparent outline-none"
-            />
-          </div>
-          <textarea
-            onChange={handleChange}
-            name="message"
-            value={payload?.message || ""}
-            placeholder="Your message"
-            required
-            className="bg-transparent outline-none p-2 border-b-2  border-gray-300 w-[90%] md:w-96"
-          />
-          <motion.button
-            className="p-2 w-52 bg-primary rounded-full text-white hover:bg-secondary flex items-center gap-2 justify-center mt-3"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            whileHover={{ scale: 1.05 }}
-            onClick={handleSubmit}
-          >
-            Submit
-            <FaPaperPlane />
-          </motion.button>
-        </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
-};
-
-export default Contact;
+}

@@ -1,97 +1,57 @@
 "use client";
+import React from "react";
 import { projectsData } from "@/lib/data";
 import Image from "next/image";
-import React, { useState } from "react";
-import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { motion } from "framer-motion";
 
-const Projects = () => {
-  const [currentProject, setCurrentProject] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentProject((prev) =>
-      prev === 0 ? projectsData.length - 1 : prev - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentProject((prev) =>
-      prev === projectsData.length - 1 ? 0 : prev + 1
-    );
-  };
-
+export default function Projects() {
   return (
-    <div className="w-full h-[100vh] overflow-hidden relative flex gap-4 items-start" id="projects">
-      <div className="absolute w-full h-full">
-        {projectsData.map((project, index) => (
-          <div
-            key={project.id}
-            className={`absolute w-full h-full transition-opacity duration-500 ${
-              index === currentProject ? "opacity-100" : "opacity-0"
-            }`}
+    <section
+      id="projects"
+      className="mx-auto max-w-6xl px-4 md:px-8 py-10 md:py-16"
+    >
+      <motion.header
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.5 }}
+        className="mb-6 md:mb-10 flex items-end justify-between"
+      >
+        <h2 className="text-2xl md:text-3xl font-bold">
+          <span className="accent-text">Projects</span>
+        </h2>
+      </motion.header>
+      <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {projectsData.map((p) => (
+          <motion.a
+            href={p.url}
+            target="_blank"
+            key={p.id}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
+            whileHover={{ y: -4 }}
+            className="group relative overflow-hidden rounded-2xl glass block"
           >
-            <Image
-              src={project.imageUrl}
-              alt={project.title}
-              fill
-              priority
-              quality={100}
-              className="object-cover"
-            />
-          </div>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src={p.imageUrl}
+                alt={p.title}
+                fill
+                className="object-cover object-top opacity-90 group-hover:opacity-100 transition"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-base md:text-lg font-semibold">{p.title}</h3>
+              <p className="mt-1 text-xs md:text-sm opacity-70 line-clamp-2">
+                {p.description}
+              </p>
+            </div>
+            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[var(--accent-start)] via-[var(--accent-mid)] to-[var(--accent-end)] opacity-0 group-hover:opacity-100 transition" />
+          </motion.a>
         ))}
       </div>
-
-      <motion.div
-        className="flex flex-col items-start gap-5 w-[50vw] md:w-[30vw] p-8 z-20 h-full justify-center bg-white/10 backdrop-blur-sm rounded-r-full relative border-r-2 border-primary"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <h1
-          className={`text-xl md:text-3xl font-bold ${
-            projectsData[currentProject].id === 2 ? "text-black" : "text-white"
-          }`}
-        >
-          {projectsData[currentProject].title}
-        </h1>
-        <p
-          className={`text-[12px] md:text-sm text-gray-400 ${
-            projectsData[currentProject].id === 2 ? "bg-white" : ""
-          }`}
-        >
-          {projectsData[currentProject].description}
-        </p>
-        <motion.a
-          href={projectsData[currentProject].url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs md:text-sm p-3 bg-primary rounded-full px-5 hover:bg-secondary text-white"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          whileHover={{ scale: 1.05 }}
-        >
-          View Project
-        </motion.a>
-
-        <div
-          className={`flex items-center justify-center gap-4 mt-4 ${
-            projectsData[currentProject].id === 2 ? "text-black" : "text-white"
-          }`}
-        >
-          <CiCircleChevLeft
-            onClick={handlePrev}
-            className="text-[3rem] cursor-pointer hover:text-primary"
-          />
-          <CiCircleChevRight
-            onClick={handleNext}
-            className="text-[3rem] cursor-pointer hover:text-primary"
-          />
-        </div>
-      </motion.div>
-    </div>
+    </section>
   );
-};
-
-export default Projects;
+}

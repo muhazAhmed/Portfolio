@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
+import BackgroundFX from "@/components/neo/BackgroundFX";
+import SmoothScroll from "@/components/neo/SmoothScroll";
 import BottomMenu from "@/components/BottomMenu";
 import Footer from "@/components/Footer";
 import SEO from "@/seo/seoConfig";
@@ -20,6 +22,8 @@ export default function RootLayout({
     <html lang="en" data-theme="dark">
       <body className={"antialiased"}>
         <ThemeProvider>
+          <BackgroundFX />
+          <SmoothScroll />
           <Suspense fallback={<Loader />}>
             <Navbar />
             {children}

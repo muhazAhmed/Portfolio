@@ -25,7 +25,7 @@ const Footer = () => {
           title="TypeScript"
         />
       </div>
-      <p>By Muhaz Ahmed 2024 ®</p>
+      <p>By Muhaz Ahmed 2025 ®</p>
     </div>
   );
 };
