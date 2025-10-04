@@ -4,12 +4,12 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Skills from "@/components/Skills";
-import { loadInitialServer, useSessionStorage } from "@/lib/utils";
+import { loadInitialServer, readSessionStorage } from "@/lib/utils";
 import { SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 
 export default function Home() {
-  const initialLoad = useSessionStorage("initialLoad")
+  const initialLoad = readSessionStorage("initialLoad")
   useEffect(() => {
     if (initialLoad === null) loadInitialServer();
   }, [initialLoad]);
