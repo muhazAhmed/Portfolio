@@ -17,7 +17,7 @@ export const loadInitialServer = async () => {
 
 export const fetchUserLocation = async () => {
   try {
-    const initialLoad = useSessionStorage("initialLoad");
+    const initialLoad = readSessionStorage("initialLoad");
     if (initialLoad) return null;
     const response = await axios.get("https://get.geojs.io/v1/ip/geo.json");
     return response.data;
@@ -28,7 +28,7 @@ export const fetchUserLocation = async () => {
 };
 
 export const loadUserDevice = async () => {
-  const initialLoad = useSessionStorage("initialLoad");
+  const initialLoad = readSessionStorage("initialLoad");
   if (initialLoad) return null;
   const userAgent = navigator.userAgent.toLowerCase();
 
@@ -72,7 +72,7 @@ export const newSessionStorage = (key: string, item: any) => {
   sessionStorage.setItem(key, JSON.stringify(item));
 };
 
-export const useSessionStorage = (key: string) => {
+export const readSessionStorage = (key: string) => {
   if (typeof window === "undefined") {
     return null;
   }
